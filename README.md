@@ -34,3 +34,16 @@ Alternatively, we could focus on the expanding and changing nature of research i
 
 - Paper on sea levels in Mediterranean
 -
+
+### Data that we have:
+    - Data on world heritage sites around the Mediterranean : about erosion and flood risk data from UNESCO
+    - Using the data on the location of the sites and their distance from the coastline we can create a visualization on the effects of rising sea levels on the landmarks with respect to the tourists who visit these landmarks. It would be interesting to show how tourist visits to these sites may be affected due to climate change factors. Not only rise in sea levels, but rise in temperatures in these areas can also affect tourism.
+    - We have datasets that convey the impact of rising sea levels for these landmarks and the data that shows how temperature change is going the affect the regions where they are located. Using this data we can say something about changing tourism patterns in the coming years.
+    - Climate change vulnerability index
+    
+ ### Alternative angle:
+- Looking into research about climate change and world heritage sites, we can say something about the shift in focus of the research papers. After talking to researchers we have learned that research is focussing more on management of cultural sites
+- Scholarly interest in the topic of climate change has gone up, as well as the diversity of researchers who are conducting research in this area.
+- We hope to do an NLP-based research on the corpus of research papers from different years to see if terms related to climate change are occurring more in the literature. It would also be interesting to see how the diversity of researchers has changed over the years, though that might not be possible using just NLP based techniques.
+- https://link.springer.com/article/10.1007/s10584-017-1929-9
+
