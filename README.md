@@ -6,44 +6,42 @@ Cultural world heritage sites are under threat from climate change. More researc
 
 ## Challenges and options
 
-While the above description is interesting, it does have a certain ‘so what’ aspect to it. It is also more of a topic rather than a specific story. We see 2 ways forward to turn this into a story.
+While the above description is interesting, and climate change as a subject remains relevant and important, it is more of a topic rather than a specific story. We see 2 ways forward to turn this into an actual story readers would care about.
 
-One approach would be to focus on a specific monument and focus on explaining it in an accessible and engaging way to readers. The main challenge in that case is getting access to data.
+### Approach 1: Focus on Word Heritage Sites
 
-Alternatively, we could focus on the expanding and changing nature of research into the climate change vulnerability of 
+One approach would be to focus on a specific monument and focus on explaining it in an accessible and engaging way to readers.
 
-## Computational component
+There is a [recent paper](https://www.nature.com/articles/s41467-018-06645-9) on World heritage Sites around the Mediterranean under increased risk of flood and erosion. While the paper contains some data visualizations, they are rather limited. However, the underlying [data](https://figshare.com/articles/UNESCO_cultural_World_Heritage_in_the_Mediterranean_coastal_zone/5759538) is readily accessible ([geo-layers](https://www.nature.com/articles/s41467-018-06645-9#Sec13) as well).
 
-### As part of this pitch
+Using the data from the paper I want to show how a traditional tourist trip along these sites may be affected by climate change. In addition to the flood and erosion data from the paper (which the researchers calculated for every decade from 2000 to 2100), I can use temperature predictions to the visualization.
 
-### As part of the final story
+In addition to an interactive map, I want to add information on specific sites from other papers that follow a bottom-up approach, detailing the effects of climate change on individual sites (or a small group of sites in close geographic proximity).
 
+
+### Approach 2: Focus on the evolution of the research
+
+Based on my interviews with experts as well as some analysis of the body of academic research, there seem to be several trends in the research around climate change and cultural World Heritage Sites:
+- the research is expanding, more papers are being published and more scientists are interested in the field
+- it seems to become more interdisciplinary and integrated in its approach
+- it is expanding its focus from measuring risk and impact to assessing more broadly defined aspects such as vulnerability and adaptability
+- researchers are more activist in their assessment and recommendations towards management of these WHS
+
+Drawing inspiration from this [systemic literature review](https://link.springer.com/article/10.1007/s10584-017-1929-9), I can measure the number of papers & researchers involved over time as well as use NLP techniques such as topic modelling on the corpus of research to see if these impressions hold at scale. The final story would combine the result from this analysis with the stories of individual researchers such as Bertolin & Hughes, who cmoe from a very technical 'hard science' background but are now heavily involved in interdisciplinary research into WHS and climate change.
 
 ## Sources
 
 ### Humans
 
 - Andrew Revkin, Initiative on Communication Innovation & Impact at Columbia University's Earth Institute
-- Chiara Bertolin professor at Department of Mechanical and Industrial Engineering at Norwegian University of Science and Technology
+- Chiara Bertolin, professor at Department of Mechanical and Industrial Engineering at Norwegian University of Science and Technology
 - Jim Perry, professor at the Department of Fisheries, Wildlife and Conservation Biology at the University of Minnesota
 - John Hughes, professor at the School of Computing, Engineering and Physical Sciences at the University of the West of Scotland
 - Dr. Elizabeth English, associate professor, at the University of Waterloo School of Architecture in Cambridge, Ontario and the founder and director of the Buoyant Foundation Project, a not-for-profit organization.
 
-
 ### Data
 
-- Paper on sea levels in Mediterranean
--
+- Flood & erosion data from the paper described above.
+- Temperature prediction models from the [EU Copernicus project](https://cds.climate.copernicus.eu/#!/home)
 
-### Data that we have:
-    - Data on world heritage sites around the Mediterranean : about erosion and flood risk data from UNESCO
-    - Using the data on the location of the sites and their distance from the coastline we can create a visualization on the effects of rising sea levels on the landmarks with respect to the tourists who visit these landmarks. It would be interesting to show how tourist visits to these sites may be affected due to climate change factors. Not only rise in sea levels, but rise in temperatures in these areas can also affect tourism.
-    - We have datasets that convey the impact of rising sea levels for these landmarks and the data that shows how temperature change is going the affect the regions where they are located. Using this data we can say something about changing tourism patterns in the coming years.
-    - Climate change vulnerability index
-    
- ### Alternative angle:
-- Looking into research about climate change and world heritage sites, we can say something about the shift in focus of the research papers. After talking to researchers we have learned that research is focussing more on management of cultural sites
-- Scholarly interest in the topic of climate change has gone up, as well as the diversity of researchers who are conducting research in this area.
-- We hope to do an NLP-based research on the corpus of research papers from different years to see if terms related to climate change are occurring more in the literature. It would also be interesting to see how the diversity of researchers has changed over the years, though that might not be possible using just NLP based techniques.
-- https://link.springer.com/article/10.1007/s10584-017-1929-9
 

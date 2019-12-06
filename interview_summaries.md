@@ -1,5 +1,6 @@
 # Findings from interviews
-## Dr. Elizabeth English
+
+## Elizabeth English
 - Almost anything that can be elevated can be amphibiated.
 - However, she would not recommend tall structures with a narrow base to undergo amphibious treatment. There can be issues with buoyant stability, that's why structures like Statue of Liberty and Washington monument should not be subjected to amphibious treatment (high aspect ratio of height to width).
 - Technically it is feasible to amphibiate most buildings, but it may not be cost-effective for all structures.
