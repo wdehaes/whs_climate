@@ -1,0 +1,81 @@
+<html>
+
+<head>
+  <title>CARTO VL Example</title>
+  <!-- Load CARTO VL JS -->
+  <script src="https://libs.cartocdn.com/carto-vl/v1.2.4/carto-vl.min.js"></script>
+  <!-- Load Mapbox GL -->
+  <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.js"></script>
+  <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css" rel="stylesheet">
+  <style>
+    #map {
+      position: absolute;
+      width: 100%;
+      height: 100%
+    }
+  </style>
+  <!-- Your style will go here -->
+</head>
+
+<body>
+  <!-- Your map will go here -->
+  <div id="map"></div>
+  <script>
+    carto.setDefaultAuth({
+    username: 'wdehaes',
+    apiKey: '56cde5e603439c447a4d723e6ae3346c36796237'
+    })
+    const map = new mapboxgl.Map({
+      container: 'map',
+      style: carto.basemaps.positron,
+      center: [0, 30],
+      zoom: 2
+    })
+
+    years = ['2020', '2050','2100']
+    viz_dict = {}
+
+    // function category(val) {
+    //   const category = '';
+    //   switch (key) {
+    //     case val == 0:
+    //       category = 'none'
+    //       break;
+    //     case val <= 4:
+    //       category = 'low'
+    //       break;
+    //     case val <= 7:
+    //       category = 'medium'
+    //     case val <= 9:
+    //       category = 'low'
+    //     default:
+    //       break;
+    //   }
+    // }
+    // years.forEach(element => {
+    //   const viz = new carto.Viz(
+    //   `
+    //   width: 4
+    //   strokeWidth: 0.5
+    //   strokeColor: ramp(buckets($category, ['Moda y calzado','Salud','Alimentación'])
+    //   color: blue
+    //   `
+    //   )
+    //   viz_dict[element] = viz
+    // });
+    const viz = new carto.Viz(
+      `
+      width: 4
+      strokeWidth: 0.5
+      strokeColor: green
+      color: green
+      `
+    )
+
+    const source = new carto.source.Dataset('whs_risk')
+    const layer = new carto.Layer('layer', source, viz);
+    layer.addTo(map);
+  </script>
+</body>
+
+</html>
