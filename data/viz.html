@@ -1,0 +1,152 @@
+<html>
+
+<head>
+  <title>CARTO VL Example</title>
+  <!-- Load CARTO VL JS -->
+  <script src="https://libs.cartocdn.com/carto-vl/v1.2.4/carto-vl.min.js"></script>
+  <!-- Load Mapbox GL -->
+  <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.js"></script>
+  <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css" rel="stylesheet">
+  <style>
+    #map {
+      position: absolute;
+      width: 100%;
+      height: 100%
+    }
+
+  </style>
+  <!-- Your style will go here -->
+</head>
+
+<body>
+  <!-- Your map will go here -->
+  <div id="map"></div>
+  <aside class="toolbox">
+    <div class="box">
+      <header>
+        <h1>Pop-ups on hover</h1>
+      </header>
+      <section>
+        <p class="description open-sans">Configure pop-up windows on hover</p>
+      </section>
+      <footer class="js-footer"></footer>
+    </div>
+  </aside>
+  <div id="loader">
+    <div class="CDB-LoaderIcon CDB-LoaderIcon--big">
+      <svg class="CDB-LoaderIcon-spinner" viewBox="0 0 50 50">
+        <circle class="CDB-LoaderIcon-path" cx="25" cy="25" r="20" fill="none"></circle>
+      </svg>
+    </div>
+  </div>
+
+  <script>
+    carto.setDefaultAuth({
+      username: 'wdehaes',
+      apiKey: '56cde5e603439c447a4d723e6ae3346c36796237'
+    })
+    const map = new mapboxgl.Map({
+      container: 'map',
+      style: carto.basemaps.positron,
+      center: [0, 30],
+      zoom: 2
+    })
+
+    years = ['2020', '2050', '2100']
+    viz_dict = {}
+
+    function category(val) {
+      const category;
+      switch (key) {
+        case val == 0:
+          category = 'none'
+          break;
+        case val <= 4:
+          category = 'low'
+          break;
+        case val <= 7:
+          category = 'medium'
+        case val <= 9:
+          category = 'high'
+        default:
+          break;
+      }
+      return category;
+    }
+    years.forEach(element => {
+      const viz = new carto.Viz(
+        `
+      width: 4
+      strokeWidth: 0.5
+      strokeColor: ramp(buckets($category, ['Moda y calzado','Salud','Alimentación'])
+      color: blue
+      `
+      )
+      viz_dict[element] = viz
+    });
+    const viz = new carto.Viz(
+      `
+      width: 4
+      strokeWidth: 0.5
+      strokeColor: blue
+      color: blue
+      `
+    )
+
+    // Define interactivity
+    const interactivity = new carto.Interactivity(layer);
+    const delay = 50;
+    let clickedFeatureId = null;
+
+    interactivity.on('featureEnter', event => {
+      event.features.forEach(feature => {
+        if (feature.id !== clickedFeatureId) {
+          feature.color.blendTo('opacity(DeepPink, 0.5)', delay)
+          feature.strokeWidth.blendTo('4', delay);
+          feature.strokeColor.blendTo('opacity(DeepPink, 0.8)', delay);
+        }
+      });
+    });
+
+    interactivity.on('featureLeave', event => {
+      event.features.forEach(feature => {
+        if (feature.id !== clickedFeatureId) {
+          feature.color.reset(delay);
+          feature.strokeWidth.reset(delay);
+          feature.strokeColor.reset(delay);
+        }
+      });
+    });
+
+    interactivity.on('featureHover', updatePopup);
+
+    const source = new carto.source.Dataset('whs_risk')
+    const layer = new carto.Layer('layer', source, viz);
+    layer.addTo(map);
+
+    function updatePopup(event) {
+      if (event.features.length > 0) {
+        const vars = event.features[0].variables;
+        popup.setHTML(`
+        <div>
+          <h3 class="h3">${vars.country_name.value}</h3>
+          <p class="description open-sans">Population: ${vars.pop_2015.value}</h3>
+        </div>
+        `);
+        popup.setLngLat([event.coordinates.lng, event.coordinates.lat]);
+        if (!popup.isOpen()) {
+          popup.addTo(map);
+        }
+      } else {
+        popup.remove();
+      }
+    }
+
+    function hideLoader() {
+      document.getElementById('loader').style.opacity = '0';
+    }
+
+  </script>
+</body>
+
+</html>
